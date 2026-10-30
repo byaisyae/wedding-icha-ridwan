@@ -62,7 +62,7 @@ const C = {
     },
     {
       t: "Resepsi",
-      time: "10.00 - 15.00 WIB", // jam resepsi belum diisi — kosong = baris jam otomatis disembunyikan
+      time: "10.00 - 15.00 WIB",
       place: "Gedung Brata Kartika",
       addr: "Jl. Nagrog No.815, Pasirwangi, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40618",
       map: "https://maps.app.goo.gl/CNNyqXyhwyHs3FMG8?g_st=ac",
@@ -72,7 +72,7 @@ const C = {
   music: "sound/Calum-Scott-You-Are-The-Reason-Official-Video.mp3", // lagu latar: taruh file mp3 di folder sound/
   // alamat pengiriman kado (kosongkan {} jika tidak dipakai)
   giftAddress: {
-    name: "Khoerunnisa (Icha)",
+    name: "Icha",
     addr: "Jl. Cigending Gg. Situ Indah 2 RT 03 RW 08 (Pabrik Tempe Afka)",
   },
   // rekening amplop digital (boleh lebih dari satu; kosongkan [] jika tidak dipakai)
