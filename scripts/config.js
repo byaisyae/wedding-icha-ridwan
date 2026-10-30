@@ -82,22 +82,41 @@ const C = {
   },
   // rekening amplop digital (boleh lebih dari satu; kosongkan [] jika tidak dipakai)
   gifts: [{ bank: "BCA", no: "2831880815", name: "Khoerunnisa" }],
-  // galeri: foto melebar (landscape) otomatis tampil selebar grid
+  // galeri: disarankan 6 foto portrait agar ringan (tampil sebagai slider + thumbnail)
   gallery: [
-    U("1646325311277-0c35409fdd57", 1600, 900),
     U("1607357910286-1ff94ac13c24", 800, 1100),
     U("1596457221755-b96bc3a6df18", 800, 1100),
-    U("1537633468298-d86f0c2d4173", 800, 1100),
-    U("1695266392136-1805eef542ac", 800, 1100),
-    U("1556499696-0ba753b9ad02", 800, 1100),
-    U("1684244276932-6ae853774c4d", 800, 1100),
-    U("1556302482-70b6e670e6b7", 1600, 900),
     U("1624067056935-593eb6595294", 800, 1100),
     U("1535185384036-28bbc8035f28", 800, 1100),
+    U("1556499696-0ba753b9ad02", 800, 1100),
+    U("1684244276932-6ae853774c4d", 800, 1100),
   ],
   // cerita (kosongkan [] jika tidak dipakai)
-  story: [], // belum ada data cerita — kosong = bagian Our Story otomatis tidak tampil
+  // 2 foto cerita (carousel otomatis bergeser ke bawah)
+  storyPhotos: [U("1519741497674-611481863552", 1200, 800), U("1517456215183-9a2c3a748d0c", 1200, 800)],
+  // contoh isi (hapus tanda // di depan, lalu isi dengan cerita asli):
+  // story: [
+  //   { d: "09 September 2016", t: "Awal Bertemu", p: "Tulis cerita singkat di sini." },
+  //   { d: "12 Desember 2016", t: "Menjalin Hubungan", p: "Tulis cerita singkat di sini." },
+  //   { d: "15 Januari 2023", t: "Bertunangan", p: "Tulis cerita singkat di sini." },
+  // ],
+  // CERITA DUMMY — ganti dengan cerita asli kostumer (kosongkan [] jika tidak dipakai)
+  story: [
+    {
+      d: "09 September 2018",
+      t: "Awal Bertemu",
+      p: "Awal mula kami bertemu adalah dalam sebuah acara sederhana yang tidak pernah kami duga akan menjadi awal dari perjalanan panjang ini.",
+    },
+    {
+      d: "12 Desember 2018",
+      t: "Menjalin Hubungan",
+      p: "Setelah berkomunikasi beberapa bulan dan menemukan kecocokan, akhirnya kami memutuskan untuk menjalin sebuah komitmen.",
+    },
+    {
+      d: "15 Januari 2026",
+      t: "Bertunangan",
+      p: "Setelah menjalin hubungan beberapa tahun, akhirnya kami memantapkan hati untuk membawa hubungan ini ke jenjang yang lebih serius.",
+    },
+  ],
 };
-// Ukuran foto galeri (lebar, tinggi) — OPSIONAL. Kosong = ukuran dibaca otomatis saat foto dimuat.
-const GD = {};
 /* =============================================== */

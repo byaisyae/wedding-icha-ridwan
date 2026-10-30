@@ -26,7 +26,7 @@ $("#app").innerHTML =
     "galeri",
     "Our Gallery",
     "",
-    `<div class="columns-2 md:columns-3 gap-x-2 sm:gap-x-3">${C.gallery.map((g, i) => `<div class="rz ph break-inside-avoid mb-2 sm:mb-3 rounded-2xl overflow-hidden cursor-zoom-in" style="${GD[g] ? `aspect-ratio:${GD[g][0]}/${GD[g][1]};${GD[g][0] / GD[g][1] > 1.2 ? "column-span:all;" : ""}` : ""}--d:${(i % 3) * 0.1}s"><img src="${g}" loading="lazy" onload="gdFix(this)" onerror="this.remove()" class="gl w-full h-full object-cover hover:scale-105 transition duration-700"></div>`).join("")}</div>`,
+    `<div class="rv -mx-5 sm:-mx-6"><div id="galMain" class="gal-view relative overflow-hidden aspect-[8/9] select-none"><div id="galTrack" class="gal-track flex h-full">${C.gallery.map((g) => `<div class="gal-slide ph flex-none w-full h-full cursor-zoom-in"><img src="${g}" alt="Galeri" loading="lazy" decoding="async" draggable="false" onerror="this.remove()" class="gl w-full h-full object-cover"></div>`).join("")}</div></div><div id="galThumbs" class="gal-scroll relative flex gap-2 sm:gap-3 overflow-x-auto mt-2 sm:mt-3 px-2">${C.gallery.map((g, i) => `<button type="button" aria-label="Foto ${i + 1}" class="gal-th ph flex-none w-24 sm:w-28 aspect-[4/3] rounded-lg overflow-hidden"><img src="${g}" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="w-full h-full object-cover"></button>`).join("")}</div></div>`,
     "",
     "bg-n8",
   ) +
@@ -35,7 +35,7 @@ $("#app").innerHTML =
     "cerita",
     "Our Story",
     "",
-    `<div class="space-y-12">${C.story.map((s, i) => `<div class="grid md:grid-cols-2 lg:grid-cols-1 gap-6 items-center ${i % 2 ? "md:[&>*:first-child]:order-2 lg:[&>*:first-child]:order-none" : ""}"><div class="rc ph rounded-3xl overflow-hidden aspect-[4/3]"><img src="${s.i}" alt="${s.t}" onerror="this.remove()" class="w-full h-full object-cover"></div><div class="${i % 2 ? "rl" : "rr"} text-left md:px-8 lg:px-0"><p class="text-xs tracking-widest text-sk-300">${s.d}</p><h3 class="font-serif text-2xl text-white mt-1">${s.t}</h3><p class="text-sm mt-2 leading-relaxed">${s.p}</p></div></div>`).join("")}</div>`,
+    storyCard(),
   )
     : "") +
   sec(

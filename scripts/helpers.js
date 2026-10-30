@@ -33,13 +33,14 @@ const btn = (h, t) =>
 // 2 foto (photos) = carousel otomatis; side "l" = foto bergeser ke kanan & teks rata kiri, side "r" = bergeser ke kiri & teks rata kanan.
 const igIcon =
   '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
-// Carousel otomatis 2 foto (dir "r" = bergeser ke kanan, "l" = ke kiri). 1 foto = diam.
+// Carousel otomatis 2 foto. dir: "r" = bergeser ke kanan, "l" = ke kiri, "d" = ke bawah, "u" = ke atas. 1 foto = diam.
 const carousel = (photos, alt, dir = "r") => {
   const ph = (Array.isArray(photos) ? photos : [photos]).filter(Boolean);
   const im = (src, cls = "") =>
     `<img src="${src}" alt="${alt}" loading="lazy" onerror="this.remove()" class="${cls}">`;
+  const cls = { r: "pc-r", l: "pc-l", d: "pc-v pc-d", u: "pc-v pc-u" }[dir] || "pc-r";
   return ph.length > 1
-    ? `<div class="pc-track ${dir === "r" ? "pc-r" : "pc-l"}">${im(ph[0])}${im(ph[1])}${im(ph[0])}</div>`
+    ? `<div class="pc-track ${cls}">${im(ph[0])}${im(ph[1])}${im(ph[0])}</div>`
     : ph.length
       ? im(ph[0], "w-full h-full object-cover")
       : "";
@@ -57,10 +58,11 @@ const evCard = (e, i) => {
   const media = carousel(e.photos || (e.photo ? [e.photo] : []), e.t, i % 2 ? "l" : "r");
   return `<div class="${i % 2 ? "rr" : "rl"} text-left bg-sk-200 text-n9 ${i % 2 ? "rounded-bl-[2rem]" : "rounded-br-[2rem]"} rounded-t-[2rem] overflow-hidden shadow-xl">${media ? `<div class="pc ph relative aspect-[3/2] w-full overflow-hidden">${media}</div>` : ""}<div class="flex ${i % 2 ? "flex-row-reverse" : ""}"><div class="flex-1 min-w-0 p-5 sm:p-7"><p class="font-bold tracking-wide text-base sm:text-lg leading-snug">${day}${e.time ? `<br>${e.time}` : ""}</p><p class="mt-4 text-sm sm:text-base font-medium">${e.place}</p><p class="text-sm mt-1 leading-relaxed">${e.addr}</p><a href="${e.map}" target="_blank" rel="noopener" class="mt-5 inline-block px-5 py-2.5 rounded-md bg-n7 text-white text-sm font-medium hover:bg-n8 transition">Buka Maps</a></div><div class="w-16 sm:w-20 flex-none flex items-center justify-center bg-n7 ${i % 2 ? "rounded-bl-[2rem]" : "rounded-br-[2rem]"}"><span class="font-script text-3xl sm:text-4xl text-white whitespace-nowrap" style="writing-mode:vertical-rl;${i % 2 ? "transform:rotate(180deg)" : ""}">${e.t}</span></div></div></div>`;
 };
-// ukuran foto galeri otomatis jika belum ada di GD (foto melebar tampil selebar grid)
-const gdFix = (im) => {
-  const p = im.parentElement;
-  if (p.style.aspectRatio) return;
-  p.style.aspectRatio = `${im.naturalWidth}/${im.naturalHeight}`;
-  if (im.naturalWidth / im.naturalHeight > 1.2) p.style.columnSpan = "all";
+// Kartu cerita (Our Story): foto carousel bergeser ke bawah di atas, daftar momen di kiri, judul "Love Story" vertikal di kanan.
+const storyCard = () => {
+  const sp = (C.storyPhotos && C.storyPhotos.length ? C.storyPhotos : C.story.map((s) => s.i))
+    .filter(Boolean)
+    .slice(0, 2);
+  const media = carousel(sp, "Love Story", "d");
+  return `<div class="rv text-left bg-sk-200 text-n9 rounded-t-[2rem] rounded-br-[2rem] overflow-hidden shadow-xl max-w-3xl mx-auto">${media ? `<div class="pc ph relative aspect-[3/2] w-full overflow-hidden">${media}</div>` : ""}<div class="flex"><div class="flex-1 min-w-0 p-5 sm:p-7 space-y-6">${C.story.map((s) => `<div><h3 class="font-serif italic text-xl sm:text-2xl">${s.t}</h3><p class="mt-2 text-sm font-medium">${s.d}</p><p class="mt-1 text-sm leading-relaxed">${s.p}</p></div>`).join("")}</div><div class="w-16 sm:w-20 flex-none flex items-center justify-center bg-n7 rounded-br-[2rem]"><span class="font-script text-3xl sm:text-4xl text-white whitespace-nowrap" style="writing-mode:vertical-rl">Love Story</span></div></div></div>`;
 };

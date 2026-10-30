@@ -5,7 +5,7 @@
 - `css/style.css` — gaya kustom
 - `scripts/config.js` — **semua data undangan** (file yang diedit untuk tiap pesanan)
 - `scripts/tailwind.config.js` — tema Tailwind (warna & font)
-- `scripts/helpers.js`, `render.js`, `ui.js`, `rsvp.js`, `gallery.js`, `animations.js` — logika halaman (jarang diubah)
+- `scripts/helpers.js`, `render.js`, `ui.js`, `rsvp.js`, `gallery.js`, `slider.js`, `animations.js` — logika halaman (jarang diubah)
 - `img/`, `sound/` — foto dan musik (ganti dengan milik kostumer)
 - `Code.gs` — Google Apps Script untuk RSVP & ucapan (tidak dimuat di browser)
 - `FORM-KOSTUMER.txt` — daftar data yang dikirim ke kostumer via WhatsApp
@@ -20,7 +20,7 @@
 7. Bagikan link per tamu dengan menambahkan `?to=Nama Tamu` di ujung link.
 
 ## Urutan pemanggilan script (jangan ditukar)
-`tailwind.config.js` (setelah CDN Tailwind) → `config` → `helpers` → `render` → `ui` → `rsvp` → `gallery` → `animations`
+`tailwind.config.js` (setelah CDN Tailwind) → `config` → `helpers` → `render` → `ui` → `rsvp` → `gallery` → `slider` → `animations`
 
 ## Bagian opsional
 Kosongkan di `config.js` bila tidak dipakai, bagiannya otomatis hilang dari halaman: `live`, `giftAddress`, `gifts`, `story`.
@@ -30,3 +30,9 @@ Di `scripts/config.js`, `bride.photos` dan `groom.photos` berisi 2 foto portrait
 
 ## Foto acara (Save The Date)
 Tiap acara di `events` punya `photos` (2 foto landscape, carousel otomatis; akad bergeser ke kanan, resepsi ke kiri). Isi `date` di acara bila tanggalnya berbeda dari tanggal utama.
+
+## Galeri
+Galeri berupa slider foto penuh yang berputar tanpa batas dan berganti otomatis tiap 5 detik (jeda diatur lewat `AUTO` di `scripts/slider.js`), plus thumbnail. Disarankan 6 foto portrait (rasio 3:4) di `gallery` agar halaman tetap ringan. Klik foto besar untuk membuka lightbox.
+
+## Our Story
+Isi `story` (tanggal `d`, judul `t`, cerita `p`) dan 2 foto di `storyPhotos`. Tampil sebagai satu kartu: foto bergeser ke bawah di atas, daftar momen di kiri, tulisan "Love Story" vertikal di kanan. Kosongkan `story` bila tidak dipakai.

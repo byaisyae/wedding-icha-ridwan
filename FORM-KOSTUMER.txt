@@ -62,7 +62,9 @@ Per momen mohon isi:
 • Tanggal:
 • Judul momen:
 • Cerita singkat (2-4 kalimat):
-• Foto untuk momen ini (kirim bersama):
+
+Foto cerita (cukup sekali, bukan per momen):
+• 2 foto landscape (tampil sebagai carousel)
 
 ━━━━━━━━━━━━━━
 *6. FOTO*
@@ -71,8 +73,7 @@ Kirim sebagai *dokumen/file* (bukan foto biasa) supaya kualitasnya tidak turun.
 • Foto cover (portrait, 1 foto):
 • Foto mempelai wanita (portrait, sendiri): 2 foto (tampil sebagai carousel)
 • Foto mempelai pria (portrait, sendiri): 2 foto (tampil sebagai carousel)
-• Foto galeri: 10-20 foto, campuran portrait & landscape
-• Foto landscape (melebar): 2-4 foto, akan tampil besar di galeri
+• Foto galeri: 6 foto portrait pilihan terbaik (tampil sebagai slider)
 • Foto untuk bagian acara: 2 foto landscape untuk Akad, 2 foto landscape untuk Resepsi (carousel)
 • Foto untuk pratinjau link saat dibagikan (landscape, 1 foto)
 
