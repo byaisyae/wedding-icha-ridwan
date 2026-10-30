@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <!-- ====== UBAH PER PESANAN: judul, deskripsi, url & gambar pratinjau link (dibaca WhatsApp/medsos, tidak bisa dari config.js) ====== -->
+    <title>The Wedding of Icha &amp; Ridwan</title>
+    <meta property="og:title" content="The Wedding of Icha &amp; Ridwan" />
+    <meta
+      property="og:description"
+      content="Kami mengundang Anda untuk hadir di hari bahagia kami. Sabtu, 12 Desember 2026."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://NAMA-AKUN.github.io/NAMA-REPO/"
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1646325311277-0c35409fdd57?auto=format&amp;fit=crop&amp;q=75&amp;w=1200&amp;h=630"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="scripts/tailwind.config.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="lock bg-n9 text-sk-200 font-sans antialiased overflow-x-hidden">
+    <section
+      id="cover"
+      class="fixed inset-0 z-[60] grid place-items-center text-center px-6 overflow-hidden bg-n8"
+    >
+      <div id="cvbg" class="absolute inset-0 bg kb"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-n9/80 via-n8/60 to-n9/90"
+      ></div>
+      <div
+        class="absolute inset-4 sm:inset-8 border border-sk-300/40 rounded-[2rem] pointer-events-none"
+      ></div>
+      <div class="relative">
+        <p class="tracking-[.45em] text-[11px] sm:text-xs text-sk-300">
+          THE WEDDING OF
+        </p>
+        <h1
+          data-names
+          class="font-script text-6xl sm:text-8xl lg:text-7xl text-white my-4 drop-shadow-lg"
+        >
+        </h1>
+        <p id="coverDate" class="font-serif tracking-widest text-sk-300"></p>
+        <div
+          class="mt-10 mx-auto max-w-xs rounded-2xl bg-n9/50 backdrop-blur-sm border border-sk-300/20 py-5 px-4"
+        >
+          <p class="text-xs text-sk-300">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+          <p id="guest" class="font-serif text-2xl text-white mt-1"></p>
+        </div>
+        <button
+          id="openBtn"
+          class="mt-8 px-9 py-3 rounded-full bg-sk-300 text-n9 font-semibold shadow-lg hover:bg-white hover:scale-105 transition"
+        >
+          Buka Undangan
+        </button>
+      </div>
+    </section>
+
+    <div
+      id="pg"
+      class="hidden fixed top-0 h-1 bg-sk-300 z-[65]"
+      style="transform: scaleX(0)"
+    ></div>
+    <aside
+      id="side"
+      class="hidden lg:block fixed inset-y-0 left-0 z-0 overflow-hidden"
+      style="right: var(--w)"
+    >
+      <div
+        class="sl absolute inset-0 bg kb"
+        data-k="cover"
+        style="opacity: 1"
+      ></div>
+      <div
+        class="sl absolute inset-0 bg kb"
+        data-k="date"
+        style="opacity: 0"
+      ></div>
+      <div
+        class="sl absolute inset-0 bg kb"
+        data-k="quote"
+        style="opacity: 0"
+      ></div>
+      <div
+        class="sl absolute inset-0 bg kb"
+        data-k="foot"
+        style="opacity: 0"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-n9/85 via-n9/10 to-n9/35"
+      ></div>
+      <div class="absolute bottom-16 left-14 text-white">
+        <p class="tracking-[.35em] text-xs">THE WEDDING OF</p>
+        <h2 data-names class="font-serif text-6xl xl:text-7xl my-4"></h2>
+        <p id="sideDate" class="tracking-widest text-sm"></p>
+      </div>
+    </aside>
+    <audio id="bgm" loop preload="auto"></audio>
+    <button
+      id="mb"
+      class="hidden fixed top-5 right-4 z-40 w-11 h-11 rounded-full bg-n9/80 backdrop-blur-md border border-sk-300/40 text-sk-200 text-lg shadow-lg grid place-items-center"
+      aria-label="Musik"
+    ></button>
+    <main id="app"></main>
+    <nav
+      id="nav"
+      class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 hidden max-w-[94vw] overflow-x-auto no-scrollbar rounded-full bg-n9/85 backdrop-blur-md border border-sk-300/30 px-2 py-1.5 text-[11px] sm:text-xs shadow-xl whitespace-nowrap"
+    ></nav>
+    <div
+      id="lb"
+      class="fixed inset-0 z-[70] hidden place-items-center bg-n9/95 select-none"
+    >
+      <button
+        id="lbx"
+        class="absolute top-4 right-5 text-4xl text-white z-10"
+        aria-label="Tutup"
+      >
+        &times;
+      </button>
+      <button
+        id="lbp"
+        class="absolute left-3 sm:left-8 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/15 text-white text-3xl leading-none hover:bg-white/30 transition"
+        aria-label="Sebelumnya"
+      >
+        &#8249;
+      </button>
+      <button
+        id="lbn"
+        class="absolute right-3 sm:right-8 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/15 text-white text-3xl leading-none hover:bg-white/30 transition"
+        aria-label="Berikutnya"
+      >
+        &#8250;
+      </button>
+      <img
+        id="lbi"
+        class="max-h-[78vh] max-w-[88vw] rounded-2xl shadow-2xl transition-all duration-200"
+        alt=""
+      />
+      <div id="lbd" class="absolute bottom-6 flex gap-2"></div>
+    </div>
+
+    <script src="scripts/config.js"></script>
+    <script src="scripts/helpers.js"></script>
+    <script src="scripts/render.js"></script>
+    <script src="scripts/ui.js"></script>
+    <script src="scripts/rsvp.js"></script>
+    <script src="scripts/gallery.js"></script>
+    <script src="scripts/animations.js"></script>
+  </body>
+</html>
