@@ -14,7 +14,8 @@ const C = {
     mother: "Kokom",
     role: "Putri", // Putri / Putri pertama / Putri kedua ...
     address: "Jl. Cigending Gg. Situ Indah 2 RT 03 RW 08, Ujungberung, Bandung",
-    photo: U("1565038930214-09566ed2149b", 600, 800),
+    // 2 foto = carousel otomatis (bergeser ke kanan). Isi 1 foto saja bila tidak ingin carousel.
+    photos: [U("1565038930214-09566ed2149b", 900, 1200), U("1607357910286-1ff94ac13c24", 900, 1200)],
   },
   groom: {
     full: "Asep Ridwan",
@@ -25,7 +26,8 @@ const C = {
     mother: "Sumiati",
     role: "Putra",
     address: "Sumberejo RT 02 RW 03, Waway Karya, Lampung Timur",
-    photo: U("1545396047-0fd21ce522ba", 600, 800),
+    // 2 foto = carousel otomatis (bergeser ke kiri).
+    photos: [U("1545396047-0fd21ce522ba", 900, 1200), U("1596457221755-b96bc3a6df18", 900, 1200)],
   },
   date: "2026-12-12T07:30:00", // tanggal & jam mulai acara (Sabtu, 12 Desember 2026)
   // Identitas & teks undangan
@@ -55,6 +57,8 @@ const C = {
   events: [
     {
       t: "Akad Nikah",
+      // photos: 2 foto = carousel otomatis; date (opsional) = tanggal khusus acara ini, kosong = tanggal utama
+      photos: [U("1646325311277-0c35409fdd57", 1200, 800), U("1607357910286-1ff94ac13c24", 1200, 800)],
       time: "07.30 - 09.00 WIB",
       place: "Gedung Brata Kartika",
       addr: "Jl. Nagrog No.815, Pasirwangi, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40618",
@@ -62,6 +66,7 @@ const C = {
     },
     {
       t: "Resepsi",
+      photos: [U("1537633468298-d86f0c2d4173", 1200, 800), U("1695266392136-1805eef542ac", 1200, 800)],
       time: "10.00 - 15.00 WIB",
       place: "Gedung Brata Kartika",
       addr: "Jl. Nagrog No.815, Pasirwangi, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40618",

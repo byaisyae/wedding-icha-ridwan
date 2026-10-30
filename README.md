@@ -24,3 +24,9 @@
 
 ## Bagian opsional
 Kosongkan di `config.js` bila tidak dipakai, bagiannya otomatis hilang dari halaman: `live`, `giftAddress`, `gifts`, `story`.
+
+## Foto mempelai
+Di `scripts/config.js`, `bride.photos` dan `groom.photos` berisi 2 foto portrait. Dua foto tampil sebagai carousel otomatis (mempelai wanita bergeser ke kanan, mempelai pria ke kiri). Isi 1 foto saja bila tidak ingin carousel.
+
+## Foto acara (Save The Date)
+Tiap acara di `events` punya `photos` (2 foto landscape, carousel otomatis; akad bergeser ke kanan, resepsi ke kiri). Isi `date` di acara bila tanggalnya berbeda dari tanggal utama.

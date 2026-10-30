@@ -9,7 +9,7 @@ $("#app").innerHTML =
     "mempelai",
     C.text.greeting,
     C.text.intro,
-    `<div class="grid md:grid-cols-2 lg:grid-cols-1 gap-14 md:gap-8 lg:gap-14">${prof(B, "rl")}${prof(G, "rr")}</div>`,
+    `<div class="-mx-5 sm:-mx-6 grid md:grid-cols-2 lg:grid-cols-1 gap-px">${prof(B, "rl", "l")}${prof(G, "rr", "r")}</div>`,
     "",
     "bg-n8",
   ) +
@@ -18,7 +18,7 @@ $("#app").innerHTML =
     "acara",
     "Save The Date",
     `<b class="text-white font-semibold tracking-wide">${fmt.toUpperCase()}</b>`,
-    `<div class="grid md:grid-cols-2 lg:grid-cols-1 gap-6">${C.events.map((e, i) => `<div class="${i ? "rr" : "rl"} rounded-3xl border border-sk-300/30 bg-n9/70 backdrop-blur-sm p-8 sm:p-10"><h3 class="font-serif text-3xl text-white">${e.t}</h3>${e.time ? `<p class="mt-3 text-sk-300 font-medium">${e.time}</p>` : ""}<p class="mt-5 text-white">${e.place}</p><p class="text-sm mt-1 mb-6 leading-relaxed">${e.addr}</p>${btn(e.map, "Buka Maps")}</div>`).join("")}</div>
+    `<div class="grid md:grid-cols-2 lg:grid-cols-1 gap-8">${C.events.map(evCard).join("")}</div>
  ${C.live ? ` <div class="rv mt-6 rounded-3xl border border-sk-300/30 bg-n9/70 backdrop-blur-sm p-8"><h3 class="font-serif text-xl text-white">Live Streaming</h3><p class="text-sm my-3">Bagi tamu yang berhalangan hadir, silakan saksikan acara melalui link berikut:</p>${btn(C.live, "Live Streaming")}</div>` : ""}`,
     bgs(C.bg.date, "rgba(46,26,33,.88)"),
   ) +
