@@ -1,3 +1,11 @@
+const creditHtml = () => {
+  const c = C.site.credit;
+  if (!c || !c.name) return "";
+  const ico = "inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/25 text-white/80 hover:bg-white hover:text-n9 hover:-translate-y-0.5 transition";
+  return `<p class="mt-6 italic text-xs text-sk-300 leading-relaxed">${c.name}${c.ig ? `<br>Our Instagram : @${c.ig}` : ""}</p><div class="mt-4 flex justify-center gap-3">${
+    c.url ? `<a href="${c.url}" target="_blank" rel="noopener" aria-label="Website ${c.name}" class="${ico}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg></a>` : ""}${
+    c.ig ? `<a href="https://instagram.com/${c.ig}" target="_blank" rel="noopener" aria-label="Instagram @${c.ig}" class="${ico}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a>` : ""}</div>`;
+};
 /* Menyusun seluruh halaman undangan ke #app. */
 $("#app").innerHTML =
   `<header id="home" class="relative min-h-screen grid place-items-center text-center px-5 bg fx" style="${ov("rgba(46,26,33,.55)", "rgba(46,26,33,.9)")}"><div data-p=".25">
@@ -33,7 +41,7 @@ $("#app").innerHTML =
   (C.story && C.story.length
     ? sec(
     "cerita",
-    "Our Story",
+    "Love Story",
     "",
     storyCard(),
   )
@@ -63,4 +71,4 @@ $("#app").innerHTML =
     "bg-n8",
   )
     : "") +
-  `<footer class="relative py-28 px-6 text-center bg fx" style="${bgs(C.bg.foot, "rgba(46,26,33,.78)")}"><div class="rz max-w-xl mx-auto"><p class="text-sm">Kami yang berbahagia,</p><h2 class="font-script text-6xl sm:text-7xl lg:text-6xl text-white my-4">${B.nick} &amp; ${G.nick}</h2><p class="text-sm leading-relaxed">${C.text.closing}</p></div><p class="relative mt-16 text-xs tracking-wide text-white/60">${C.site.copyright}</p></footer><div class="h-20"></div>`;
+  `<footer class="relative py-28 px-6 text-center bg fx" style="${bgs(C.bg.foot, "rgba(46,26,33,.78)")}"><div class="rz max-w-xl mx-auto"><p class="text-sm">Kami yang berbahagia,</p><h2 class="font-script text-6xl sm:text-7xl lg:text-6xl text-white my-4">${B.nick} &amp; ${G.nick}</h2><p class="text-sm leading-relaxed">${C.text.closing}</p></div><div class="relative mt-16 text-center"><p class="text-xs tracking-wide text-white/60">${C.site.copyright}</p>${creditHtml()}</div></footer><div class="h-20"></div>`;

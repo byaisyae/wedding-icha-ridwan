@@ -33,7 +33,9 @@ const C = {
   // Identitas & teks undangan
   site: {
     title: "The Wedding of Icha & Ridwan", // judul tab browser
-    copyright: "Copyright © 2026 Aisyae Digital Invitation",
+    copyright: "© 2026 Aisyae Digital Invitation — Dibuat dengan cinta.",
+    // kredit desainer di footer (kosongkan {} untuk menyembunyikan)
+    credit: { name: "saevitation.com", url: "https://saevitation.com", ig: "saevitation" },
   },
   text: {
     greeting: "Assalamu'alaikum Wr. Wb.",
@@ -100,22 +102,27 @@ const C = {
   //   { d: "12 Desember 2016", t: "Menjalin Hubungan", p: "Tulis cerita singkat di sini." },
   //   { d: "15 Januari 2023", t: "Bertunangan", p: "Tulis cerita singkat di sini." },
   // ],
-  // CERITA DUMMY — ganti dengan cerita asli kostumer (kosongkan [] jika tidak dipakai)
+  // cerita (kosongkan [] jika tidak dipakai)
   story: [
     {
-      d: "09 September 2018",
-      t: "Awal Bertemu",
-      p: "Awal mula kami bertemu adalah dalam sebuah acara sederhana yang tidak pernah kami duga akan menjadi awal dari perjalanan panjang ini.",
+      d: "Juni 2025",
+      t: "Awal Pertemuan",
+      p: "Tidak ada pertemuan yang benar-benar kebetulan. Di antara banyaknya tempat dan jarak yang memisahkan, ternyata takdir punya cara sendiri untuk mempertemukan kami. Siapa sangka, dua orang yang awalnya tidak saling mengenal bisa dipertemukan dengan cara yang tidak pernah disangka. Karena jika memang sudah berjodoh, sejauh apa pun jaraknya, pasti akan ada cara untuk bertemu.",
     },
     {
-      d: "12 Desember 2018",
-      t: "Menjalin Hubungan",
-      p: "Setelah berkomunikasi beberapa bulan dan menemukan kecocokan, akhirnya kami memutuskan untuk menjalin sebuah komitmen.",
+      d: "31 Agustus 2025",
+      t: "Mulai Mengenal",
+      p: "Semua berawal dari hari ulang tahun yang sederhana. Di hari istimewa itu, dia datang membawa sebuah hadiah berupa bolu yang begitu cantik dan indah. Mungkin terlihat sederhana, tetapi perhatian kecil itu menjadi awal dari cerita yang lebih berarti. Dari situlah kami mulai saling mengenal dan perlahan membuka cerita satu sama lain.",
     },
     {
-      d: "15 Januari 2026",
-      t: "Bertunangan",
-      p: "Setelah menjalin hubungan beberapa tahun, akhirnya kami memantapkan hati untuk membawa hubungan ini ke jenjang yang lebih serius.",
+      d: "September 2025",
+      t: "Perjalanan Bersama",
+      p: "Sejak saat itu, kami mulai menjalani hari-hari bersama dan mengenal lebih jauh satu sama lain. Ada banyak cerita, tawa, dan momen sederhana yang perlahan menjadi kenangan berharga. Kami belajar memahami, menerima, dan saling melengkapi. Hingga tanpa terasa, hubungan ini tumbuh menjadi sesuatu yang semakin berarti.",
+    },
+    {
+      d: "12 Desember 2026",
+      t: "Menuju Selamanya",
+      p: "Kini, dua orang yang dulu dipertemukan secara tidak sengaja bersiap memulai cerita baru untuk selamanya. Setelah melewati berbagai cerita dan perjalanan, kami memilih untuk melangkah bersama dalam ikatan suci pernikahan. Karena ternyata, sejauh apa pun jarak memisahkan, jika memang sudah menjadi takdir, dua hati akan selalu menemukan jalan untuk bertemu. Dan kali ini, bukan lagi sekadar bertemu, tetapi untuk bersama selamanya.",
     },
   ],
 };
