@@ -4,13 +4,19 @@ history.scrollRestoration = "manual";
 scrollTo(0, 0);
 $("#cvbg").style.backgroundImage = `url(${C.bg.cover})`;
 document.title = C.site.title;
-document.querySelectorAll("[data-names]").forEach((el) => (el.textContent = `${B.nick} & ${G.nick}`));
-$("#coverDate").textContent = fmt;
+document
+  .querySelectorAll("[data-names]")
+  .forEach((el) => (el.textContent = `${B.nick} & ${G.nick}`));
+$("#coverDate").textContent = [
+  d0.getDate(),
+  d0.getMonth() + 1,
+  d0.getFullYear(),
+]
+  .map((n) => String(n).padStart(2, "0"))
+  .join(" . ");
 $("#sideDate").textContent = fmt.toUpperCase();
 const sl = [...document.querySelectorAll(".sl")];
-sl.forEach(
-  (el) => (el.style.backgroundImage = `url(${C.bg[el.dataset.k]})`),
-);
+sl.forEach((el) => (el.style.backgroundImage = `url(${C.bg[el.dataset.k]})`));
 const SK = {
   home: "cover",
   mempelai: "cover",
@@ -25,9 +31,7 @@ const so = new IntersectionObserver(
     es.forEach((x) => {
       if (x.isIntersecting) {
         const k = SK[x.target.id];
-        sl.forEach(
-          (el) => (el.style.opacity = el.dataset.k === k ? 1 : 0),
-        );
+        sl.forEach((el) => (el.style.opacity = el.dataset.k === k ? 1 : 0));
       }
     }),
   { rootMargin: "-50% 0px -50% 0px" },
