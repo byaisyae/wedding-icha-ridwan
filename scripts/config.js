@@ -58,7 +58,7 @@ const C = {
       "Merupakan sebuah kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. Terima kasih.",
   },
   // URL Web App Google Apps Script (berakhiran /exec) untuk RSVP & ucapan. Kosongkan = disimpan di browser saja (hanya untuk uji coba)
-  rsvp: "",
+  rsvp: "https://script.google.com/macros/s/AKfycbzMHV6I-FdWrFjCwSy974_ioTJlw2uFrjDm2SxTDJGfm2bTxHL93BsVfVUzfbTPjk1c/exec",
   // foto latar tiap bagian
   bg: {
     // latar paralax watercolor untuk bagian tanpa foto (Mempelai, Galeri, Cerita, Hadiah)
