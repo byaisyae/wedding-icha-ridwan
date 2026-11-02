@@ -23,7 +23,7 @@ const C = {
   groom: {
     full: "Asep Ridwan",
     nick: "Ridwan",
-    ig: "ridwan_313",
+    ig: "ridwannn_313",
     wa: "6283170854327",
     father: "Jajang Irawan",
     mother: "Sumiati",
