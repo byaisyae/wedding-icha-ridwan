@@ -3,10 +3,10 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        n9: "#2e1a21",
-        n8: "#472830",
-        n7: "#6b3f4e",
-        sk: { 200: "#f6e1e4", 300: "#e3b7bf" },
+        n9: "#6b1f3f",
+        n8: "#b83b6b",
+        n7: "#d6406f",
+        sk: { 200: "#fff0f5", 300: "#ffb3c9" },
       },
       fontFamily: {
         script: ['"Great Vibes"', "cursive"],

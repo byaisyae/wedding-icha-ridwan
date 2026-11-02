@@ -15,7 +15,10 @@ const C = {
     role: "Putri", // Putri / Putri pertama / Putri kedua ...
     address: "Jl. Cigending Gg. Situ Indah 2 RT 03 RW 08, Ujungberung, Bandung",
     // 2 foto = carousel otomatis (bergeser ke kanan). Isi 1 foto saja bila tidak ingin carousel.
-    photos: [U("1565038930214-09566ed2149b", 900, 1200), U("1607357910286-1ff94ac13c24", 900, 1200)],
+    photos: [
+      U("1565038930214-09566ed2149b", 900, 1200),
+      U("1607357910286-1ff94ac13c24", 900, 1200),
+    ],
   },
   groom: {
     full: "Asep Ridwan",
@@ -27,7 +30,10 @@ const C = {
     role: "Putra",
     address: "Sumberejo RT 02 RW 03, Waway Karya, Lampung Timur",
     // 2 foto = carousel otomatis (bergeser ke kiri).
-    photos: [U("1545396047-0fd21ce522ba", 900, 1200), U("1596457221755-b96bc3a6df18", 900, 1200)],
+    photos: [
+      U("1545396047-0fd21ce522ba", 900, 1200),
+      U("1596457221755-b96bc3a6df18", 900, 1200),
+    ],
   },
   date: "2026-12-12T07:30:00", // tanggal & jam mulai acara (Sabtu, 12 Desember 2026)
   // Identitas & teks undangan
@@ -35,7 +41,11 @@ const C = {
     title: "The Wedding of Icha & Ridwan", // judul tab browser
     copyright: "© 2026 Aisyae Digital Invitation — Dibuat dengan cinta.",
     // kredit desainer di footer (kosongkan {} untuk menyembunyikan)
-    credit: { name: "saevitation.com", url: "https://saevitation.com", ig: "saevitation" },
+    credit: {
+      name: "saevitation.com",
+      url: "https://saevitation.com",
+      ig: "saevitation",
+    },
   },
   text: {
     greeting: "Assalamu'alaikum Wr. Wb.",
@@ -51,6 +61,8 @@ const C = {
   rsvp: "",
   // foto latar tiap bagian
   bg: {
+    // latar paralax watercolor untuk bagian tanpa foto (Mempelai, Galeri, Cerita, Hadiah)
+    paper: "img/paper.jpg",
     cover: U("1519741497674-611481863552", 1200, 900),
     quote: U("1517456215183-9a2c3a748d0c", 1200, 900),
     foot: U("1502955422409-06e43fd3eff3", 1200, 900),
@@ -60,7 +72,10 @@ const C = {
     {
       t: "Akad Nikah",
       // photos: 2 foto = carousel otomatis; date (opsional) = tanggal khusus acara ini, kosong = tanggal utama
-      photos: [U("1646325311277-0c35409fdd57", 1200, 800), U("1607357910286-1ff94ac13c24", 1200, 800)],
+      photos: [
+        U("1646325311277-0c35409fdd57", 1200, 800),
+        U("1607357910286-1ff94ac13c24", 1200, 800),
+      ],
       time: "07.30 - 09.00 WIB",
       place: "Gedung Brata Kartika",
       addr: "Jl. Nagrog No.815, Pasirwangi, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40618",
@@ -68,7 +83,10 @@ const C = {
     },
     {
       t: "Resepsi",
-      photos: [U("1537633468298-d86f0c2d4173", 1200, 800), U("1695266392136-1805eef542ac", 1200, 800)],
+      photos: [
+        U("1537633468298-d86f0c2d4173", 1200, 800),
+        U("1695266392136-1805eef542ac", 1200, 800),
+      ],
       time: "10.00 - 15.00 WIB",
       place: "Gedung Brata Kartika",
       addr: "Jl. Nagrog No.815, Pasirwangi, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40618",
@@ -76,7 +94,7 @@ const C = {
     },
   ],
   live: "", // link live streaming (kosongkan jika tidak ada)
-  music: "sound/Calum-Scott-You-Are-The-Reason-Official-Video.mp3", // lagu latar: taruh file mp3 di folder sound/
+  music: "sound/sunda.mp4", // lagu latar: taruh file mp3 di folder sound/
   // alamat pengiriman kado (kosongkan {} jika tidak dipakai)
   giftAddress: {
     name: "Icha",
@@ -95,7 +113,10 @@ const C = {
   ],
   // cerita (kosongkan [] jika tidak dipakai)
   // 2 foto cerita (carousel otomatis bergeser ke bawah)
-  storyPhotos: [U("1519741497674-611481863552", 1200, 800), U("1517456215183-9a2c3a748d0c", 1200, 800)],
+  storyPhotos: [
+    U("1519741497674-611481863552", 1200, 800),
+    U("1517456215183-9a2c3a748d0c", 1200, 800),
+  ],
   // contoh isi (hapus tanda // di depan, lalu isi dengan cerita asli):
   // story: [
   //   { d: "09 September 2016", t: "Awal Bertemu", p: "Tulis cerita singkat di sini." },

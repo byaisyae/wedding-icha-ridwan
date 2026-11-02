@@ -50,7 +50,7 @@ body.lock {
     margin-left: auto;
     position: relative;
     z-index: 10;
-    background: #2e1a21;
+    background: #8e2a52;
     box-shadow: -24px 0 70px rgba(0, 0, 0, 0.55);
   }
   #cover {
@@ -61,14 +61,14 @@ body.lock {
     left: calc(100% - var(--w) / 2) !important;
   }
   body {
-    background: #2e1a21;
+    background: #8e2a52;
   }
 }
 .sl {
   transition: opacity 1.2s ease;
 }
 .ph {
-  background: linear-gradient(135deg, #6b3f4e, #472830);
+  background: linear-gradient(135deg, #d6406f, #b83b6b);
 }
 @keyframes zm {
   from {
@@ -234,4 +234,114 @@ body.lock {
 .gal-th.is-on {
   opacity: 1;
   outline-color: #fff;
+}
+
+/* latar paralax watercolor: gambar tetap diam di layar (fixed) dan hanya "dibuka" oleh section yang di-clip,
+   jadi saat scroll konten bergerak lebih cepat dari latar. Berfungsi juga di iOS (tanpa background-attachment: fixed). */
+.pxp {
+  clip-path: inset(0);
+  background-color: #ffeef4;
+}
+.px-layer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  will-change: transform;
+}
+@media (min-width: 1024px) {
+  .px-layer {
+    left: calc(100% - var(--w));
+    right: 0;
+  }
+}
+
+/* ===== hiasan bunga di dinding kiri & kanan (tetap di layar, bergoyang + kelopak jatuh) =====
+   Di desktop menempel pada tepi kolom undangan, di HP pada tepi layar. */
+#flora {
+  --fw: clamp(100px, 31vw, 170px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 35;
+  pointer-events: none;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  #flora {
+    --fw: clamp(130px, calc(var(--w) * 0.36), 190px);
+    left: calc(100% - var(--w));
+  }
+}
+.fl {
+  position: absolute;
+  width: var(--fw);
+  transition:
+    transform 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s,
+    opacity 1.4s ease 0.5s;
+}
+.fi {
+  display: block;
+  transform: var(--f, none);
+}
+.fl img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: var(--o, 50% 100%);
+  animation: flSway var(--t, 8s) ease-in-out var(--dl, 0s) infinite alternate;
+  filter: drop-shadow(0 6px 10px rgba(107,31,63, 0.35));
+  will-change: transform;
+}
+/* kiri bawah: tumbuh dari dasar dinding kiri */
+.fl-bl { left: -5%; bottom: -1%; --o: 12% 100%; --t: 7s; }
+/* kanan bawah */
+.fl-br { right: -6%; bottom: -1%; width: calc(var(--fw) * 0.92); --o: 70% 100%; --t: 8.5s; --dl: -2s; }
+/* kiri atas: menjuntai dari atas (gambar kanan dicerminkan & dibalik) */
+.fl-tl { left: -6%; top: -1%; width: calc(var(--fw) * 0.62); --t: 9.5s; --dl: -4s; }
+.fl-tl { --f: scale(-1, -1); --a: 2.2deg; --o: 70% 100%; }
+/* kanan atas */
+.fl-tr { right: -5%; top: -1%; width: calc(var(--fw) * 0.6); --t: 8s; --dl: -1s; }
+.fl-tr { --f: scale(-1, -1); --a: 2.4deg; --o: 12% 100%; }
+.fl-bl, .fl-tl { transform: none; }
+/* sebelum undangan dibuka: bunga menunggu di luar layar, lalu meluncur masuk */
+body.lock .fl-bl, body.lock .fl-tl { transform: translateX(-110%); opacity: 0; }
+body.lock .fl-br, body.lock .fl-tr { transform: translateX(110%); opacity: 0; }
+@keyframes flSway {
+  0%   { transform: rotate(calc(var(--a, 2.6deg) * -1)) translateY(0); }
+  100% { transform: rotate(var(--a, 2.6deg)) translateY(-6px); }
+}
+/* kelopak jatuh */
+.petal {
+  position: absolute;
+  top: -30px;
+  left: var(--x);
+  width: var(--s);
+  height: calc(var(--s) * 1.35);
+  background: linear-gradient(135deg, #fdeef1, #f2a9bb 60%, #e57e9a);
+  border-radius: 150% 0 150% 0;
+  opacity: 0;
+  filter: drop-shadow(0 1px 2px rgba(107,31,63, 0.25));
+  animation: petalFall var(--dur) linear var(--dl) infinite;
+}
+@keyframes petalFall {
+  0%   { transform: translate3d(0, 0, 0) rotate(0deg) rotateX(0deg); opacity: 0; }
+  8%   { opacity: 0.9; }
+  25%  { transform: translate3d(calc(var(--dx) * 0.4), 26vh, 0) rotate(120deg) rotateX(70deg); }
+  50%  { transform: translate3d(calc(var(--dx) * -0.3), 54vh, 0) rotate(240deg) rotateX(-30deg); }
+  75%  { transform: translate3d(calc(var(--dx) * 0.8), 82vh, 0) rotate(330deg) rotateX(60deg); }
+  92%  { opacity: 0.85; }
+  100% { transform: translate3d(var(--dx), 108vh, 0) rotate(420deg) rotateX(0deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl img { animation: none; }
+  .petal { display: none; }
 }

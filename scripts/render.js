@@ -2,13 +2,13 @@ const creditHtml = () => {
   const c = C.site.credit;
   if (!c || !c.name) return "";
   const ico = "inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/25 text-white/80 hover:bg-white hover:text-n9 hover:-translate-y-0.5 transition";
-  return `<p class="mt-6 italic text-xs text-sk-300 leading-relaxed">${c.name}${c.ig ? `<br>Our Instagram : @${c.ig}` : ""}</p><div class="mt-4 flex justify-center gap-3">${
+  return `<p class="mt-6 italic text-xs text-sk-300 leading-relaxed">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white transition">${c.name}</a>` : c.name}${c.ig ? `<br>Our Instagram : <a href="https://instagram.com/${c.ig}" target="_blank" rel="noopener" class="underline underline-offset-2 hover:text-white transition">@${c.ig}</a>` : ""}</p><div class="mt-4 flex justify-center gap-3">${
     c.url ? `<a href="${c.url}" target="_blank" rel="noopener" aria-label="Website ${c.name}" class="${ico}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg></a>` : ""}${
     c.ig ? `<a href="https://instagram.com/${c.ig}" target="_blank" rel="noopener" aria-label="Instagram @${c.ig}" class="${ico}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a>` : ""}</div>`;
 };
 /* Menyusun seluruh halaman undangan ke #app. */
 $("#app").innerHTML =
-  `<header id="home" class="relative min-h-screen grid place-items-center text-center px-5 bg fx" style="${ov("rgba(46,26,33,.55)", "rgba(46,26,33,.9)")}"><div data-p=".25">
+  `<header id="home" class="relative min-h-screen grid place-items-center text-center px-5 bg fx" style="${ov("rgba(107,31,63,.55)", "rgba(107,31,63,.9)")}"><div data-p=".25">
 <p class="rv tracking-[.45em] text-xs text-sk-300">THE WEDDING OF</p>
 <h1 class="rz font-script text-7xl sm:text-9xl lg:text-7xl text-white my-6 drop-shadow-lg" style="--d:.15s">${B.nick} &amp; ${G.nick}</h1>
 <p class="rv font-serif tracking-[.3em] text-lg text-sk-200" style="--d:.3s">${d0.toLocaleDateString("id-ID", { day: "2-digit", month: "2-digit", year: "numeric" }).replaceAll("/", ".")}</p>
@@ -19,7 +19,7 @@ $("#app").innerHTML =
     C.text.intro,
     `<div class="-mx-5 sm:-mx-6 grid md:grid-cols-2 lg:grid-cols-1 gap-px">${prof(B, "rl", "l")}${prof(G, "rr", "r")}</div>`,
     "",
-    "bg-n8",
+    "pxp",
   ) +
   `<section class="relative py-24 px-6 bg fx" style="${bgs(C.bg.quote)}"><div data-p=".12" class="rz max-w-2xl mx-auto text-center"><p class="font-serif italic text-lg sm:text-2xl leading-relaxed text-white">"${C.text.quote}"</p><p class="mt-5 tracking-widest text-xs text-sk-300">${C.text.quoteSource}</p></div></section>` +
   sec(
@@ -28,7 +28,7 @@ $("#app").innerHTML =
     `<b class="text-white font-semibold tracking-wide">${fmt.toUpperCase()}</b>`,
     `<div class="grid md:grid-cols-2 lg:grid-cols-1 gap-8">${C.events.map(evCard).join("")}</div>
  ${C.live ? ` <div class="rv mt-6 rounded-3xl border border-sk-300/30 bg-n9/70 backdrop-blur-sm p-8"><h3 class="font-serif text-xl text-white">Live Streaming</h3><p class="text-sm my-3">Bagi tamu yang berhalangan hadir, silakan saksikan acara melalui link berikut:</p>${btn(C.live, "Live Streaming")}</div>` : ""}`,
-    bgs(C.bg.date, "rgba(46,26,33,.88)"),
+    bgs(C.bg.date, "rgba(107,31,63,.88)"),
   ) +
   sec(
     "galeri",
@@ -36,7 +36,7 @@ $("#app").innerHTML =
     "",
     `<div class="rv -mx-5 sm:-mx-6"><div id="galMain" class="gal-view relative overflow-hidden aspect-[8/9] select-none"><div id="galTrack" class="gal-track flex h-full">${C.gallery.map((g) => `<div class="gal-slide ph flex-none w-full h-full cursor-zoom-in"><img src="${g}" alt="Galeri" loading="lazy" decoding="async" draggable="false" onerror="this.remove()" class="gl w-full h-full object-cover"></div>`).join("")}</div></div><div id="galThumbs" class="gal-scroll relative flex gap-2 sm:gap-3 overflow-x-auto mt-2 sm:mt-3 px-2">${C.gallery.map((g, i) => `<button type="button" aria-label="Foto ${i + 1}" class="gal-th ph flex-none w-24 sm:w-28 aspect-[4/3] rounded-lg overflow-hidden"><img src="${g}" alt="" loading="lazy" decoding="async" onerror="this.remove()" class="w-full h-full object-cover"></button>`).join("")}</div></div>`,
     "",
-    "bg-n8",
+    "pxp",
   ) +
   (C.story && C.story.length
     ? sec(
@@ -44,6 +44,8 @@ $("#app").innerHTML =
     "Love Story",
     "",
     storyCard(),
+    "",
+    "pxp",
   )
     : "") +
   sec(
@@ -58,7 +60,7 @@ $("#app").innerHTML =
  <textarea name="m" required rows="3" placeholder="Ucapan &amp; doa restu" class="w-full px-4 py-3 rounded-xl bg-n9/80 border border-sk-300/30 outline-none focus:border-sk-300"></textarea>
  <button class="w-full py-3 rounded-xl bg-sk-300 text-n9 font-semibold hover:bg-white transition">Kirim</button></form>
  <div id="cnt" class="mt-10 flex justify-center gap-6 text-sm"></div><div id="wl" class="mt-6 max-w-xl mx-auto space-y-3 text-left"></div><nav id="pgn" aria-label="Halaman ucapan" class="mt-5 flex flex-wrap justify-center items-center gap-1.5 text-sm"></nav>`,
-    bgs(C.bg.foot, "rgba(46,26,33,.9)"),
+    bgs(C.bg.foot, "rgba(107,31,63,.9)"),
   ) +
   ((C.gifts && C.gifts.length) || (C.giftAddress && C.giftAddress.addr)
     ? sec(
@@ -66,9 +68,9 @@ $("#app").innerHTML =
     "Wedding Gift",
     "Tanpa mengurangi rasa hormat, bagi tamu yang ingin mengirimkan hadiah kepada kedua mempelai dapat melalui:",
     `<div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-6 max-w-3xl mx-auto">${C.gifts.map((g, i) => `<div class="rl bank-card relative overflow-hidden rounded-[26px] p-5 md:p-6 shadow-[0_20px_45px_rgba(30,41,59,0.18)] border border-white/60 text-left min-h-[210px] flex flex-col justify-between" style="background:linear-gradient(135deg,#f5f7f9 0%,#e6e9ed 45%,#f0f2f5 100%)"><div class="absolute -right-16 -top-16 w-64 h-64 bg-gradient-to-br from-gray-300/50 to-transparent rotate-45 rounded-3xl pointer-events-none"></div><div class="absolute right-0 bottom-0 w-28 h-28 pointer-events-none" style="background-image:radial-gradient(rgba(100,116,139,.35) 1px,transparent 1px);background-size:7px 7px;-webkit-mask-image:linear-gradient(to top left,black 20%,transparent 70%);mask-image:linear-gradient(to top left,black 20%,transparent 70%)"></div><div class="relative z-10 flex items-start justify-between"><svg width="46" height="36" viewBox="0 0 48 38" fill="none" aria-hidden="true"><defs><linearGradient id="chip${i}" x1="0" y1="0" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#f7e8b0"/><stop offset=".5" stop-color="#d4af5a"/><stop offset="1" stop-color="#b8860b"/></linearGradient></defs><rect x="1" y="1" width="46" height="36" rx="8" fill="url(#chip${i})" stroke="#a97a1f"/><line x1="16" y1="1" x2="16" y2="37" stroke="#a97a1f"/><line x1="32" y1="1" x2="32" y2="37" stroke="#a97a1f"/><line x1="1" y1="12" x2="47" y2="12" stroke="#a97a1f"/><line x1="1" y1="25" x2="47" y2="25" stroke="#a97a1f"/><path d="M16 12Q24 19 32 12" stroke="#a97a1f" fill="none"/><path d="M16 25Q24 18 32 25" stroke="#a97a1f" fill="none"/></svg><img src="img/bca.svg" alt="${g.bank}" class="w-20 h-20 object-contain"></div><div class="relative z-10 flex items-end justify-between gap-3 mt-8"><div class="min-w-0"><p class="font-bold text-gray-800 text-sm md:text-base mb-1 truncate">${g.name.toUpperCase()}</p><p class="font-extrabold text-gray-900 text-lg md:text-2xl tracking-wide font-mono">${g.no}</p></div><button data-copy="${g.no}" class="cp flex-shrink-0 inline-flex items-center gap-1.5 bg-gray-900 hover:bg-gray-700 text-white text-xs md:text-sm font-semibold px-3.5 py-2.5 rounded-xl transition-all shadow-md" aria-label="Salin nomor ${g.bank} ${g.name}"><svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8Zm-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z"/></svg>Copy</button></div></div>`).join("")}
- ${C.giftAddress && C.giftAddress.addr ? `<div class="sm:col-span-2 lg:col-span-1 w-full max-w-xl mx-auto space-y-4"><div class="rr rounded-3xl p-7 border border-sk-300/30 bg-n9/60"><p class="font-serif text-xl text-white">Alamat Pengiriman Hadiah</p><p class="text-sm my-3 leading-relaxed"><b class="text-white">${C.giftAddress.name}</b><br>${C.giftAddress.addr}</p><button data-copy="${C.giftAddress.name}, ${C.giftAddress.addr}" class="cp px-5 py-2 rounded-full bg-sk-300 text-n9 text-sm font-medium">Salin</button></div><div class="rr text-center"><a id="giftWa" href="https://wa.me/${B.wa}" target="_blank" rel="noopener" class="inline-block px-6 py-2.5 rounded-full bg-sk-300 text-n9 text-sm font-medium">Konfirmasi Pengiriman Hadiah via WhatsApp</a></div></div>` : ""}</div>`,
+ ${C.giftAddress && C.giftAddress.addr ? `<div class="sm:col-span-2 lg:col-span-1 w-full max-w-xl mx-auto space-y-4"><div class="rr rounded-3xl p-7 border border-sk-300/30 bg-n9/85"><p class="font-serif text-xl text-white">Alamat Pengiriman Hadiah</p><p class="text-sm my-3 leading-relaxed"><b class="text-white">${C.giftAddress.name}</b><br>${C.giftAddress.addr}</p><button data-copy="${C.giftAddress.name}, ${C.giftAddress.addr}" class="cp px-5 py-2 rounded-full bg-sk-300 text-n9 text-sm font-medium">Salin</button></div><div class="rr text-center"><a id="giftWa" href="https://wa.me/${B.wa}" target="_blank" rel="noopener" class="inline-block px-6 py-2.5 rounded-full bg-sk-300 text-n9 text-sm font-medium">Konfirmasi Pengiriman Hadiah via WhatsApp</a></div></div>` : ""}</div>`,
     "",
-    "bg-n8",
+    "pxp",
   )
     : "") +
-  `<footer class="relative py-28 px-6 text-center bg fx" style="${bgs(C.bg.foot, "rgba(46,26,33,.78)")}"><div class="rz max-w-xl mx-auto"><p class="text-sm">Kami yang berbahagia,</p><h2 class="font-script text-6xl sm:text-7xl lg:text-6xl text-white my-4">${B.nick} &amp; ${G.nick}</h2><p class="text-sm leading-relaxed">${C.text.closing}</p></div><div class="relative mt-16 text-center"><p class="text-xs tracking-wide text-white/60">${C.site.copyright}</p>${creditHtml()}</div></footer><div class="h-20"></div>`;
+  `<footer class="relative py-28 px-6 text-center bg fx" style="${bgs(C.bg.foot, "rgba(107,31,63,.78)")}"><div class="rz max-w-xl mx-auto"><p class="text-sm">Kami yang berbahagia,</p><h2 class="font-script text-6xl sm:text-7xl lg:text-6xl text-white my-4">${B.nick} &amp; ${G.nick}</h2><p class="text-sm leading-relaxed">${C.text.closing}</p></div><div class="relative mt-16 text-center"><p class="text-xs tracking-wide text-white/60">${C.site.copyright}</p>${creditHtml()}</div></footer><div class="h-20"></div>`;

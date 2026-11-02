@@ -23,10 +23,12 @@ const esc = (s) =>
   );
 const ov = (a, b) =>
   `background-image:linear-gradient(${a},${b}),url(${C.bg.cover})`;
-const bgs = (url, o = "rgba(46,26,33,.82)") =>
+const bgs = (url, o = "rgba(107,31,63,.82)") =>
   `background-image:linear-gradient(${o},${o}),url(${url})`;
-const sec = (id, h, sub, body, st = "", cls = "") =>
-  `<section id="${id}" class="relative py-20 sm:py-28 px-5 sm:px-6 bg ${st ? "fx" : ""} ${cls}" style="${st}"><div class="max-w-5xl mx-auto text-center"><h2 class="rv font-script text-5xl sm:text-6xl text-white">${h}</h2>${sub ? `<p class="rv mt-4 text-sm sm:text-base text-sk-300/90 max-w-2xl mx-auto leading-relaxed" style="--d:.1s">${sub}</p>` : ""}<div class="mt-12">${body}</div></div></section>`;
+const sec = (id, h, sub, body, st = "", cls = "") => {
+  const px = cls.includes("pxp");
+  return `<section id="${id}" class="relative py-20 sm:py-28 px-5 sm:px-6 bg ${st ? "fx" : ""} ${cls}" style="${st}">${px ? `<div class="px-layer" aria-hidden="true" style="background-image:url(${C.bg.paper})"></div>` : ""}<div class="max-w-5xl mx-auto text-center"><h2 class="rv font-script text-5xl sm:text-6xl ${px ? "text-n8" : "text-white"}">${h}</h2>${sub ? `<p class="rv mt-4 text-sm sm:text-base ${px ? "text-n7" : "text-sk-300/90"} max-w-2xl mx-auto leading-relaxed" style="--d:.1s">${sub}</p>` : ""}<div class="mt-12">${body}</div></div></section>`;
+};
 const btn = (h, t) =>
   `<a href="${h}" target="_blank" rel="noopener" class="inline-block px-5 py-2 rounded-full border border-sk-300/60 text-sk-200 text-sm hover:bg-sk-300 hover:text-n9 transition">${t}</a>`;
 // Kartu mempelai (selebar layar, tanpa sudut membulat): foto penuh sebagai latar + kartu kaca berisi nama, orang tua, dan Instagram.

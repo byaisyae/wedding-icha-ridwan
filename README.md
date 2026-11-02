@@ -20,7 +20,7 @@
 7. Bagikan link per tamu dengan menambahkan `?to=Nama Tamu` di ujung link.
 
 ## Urutan pemanggilan script (jangan ditukar)
-`tailwind.config.js` (setelah CDN Tailwind) → `config` → `helpers` → `render` → `ui` → `rsvp` → `gallery` → `slider` → `animations`
+`tailwind.config.js` (setelah CDN Tailwind) → `config` → `helpers` → `render` → `ui` → `rsvp` → `gallery` → `slider` → `animations` → `flora`
 
 ## Bagian opsional
 Kosongkan di `config.js` bila tidak dipakai, bagiannya otomatis hilang dari halaman: `live`, `giftAddress`, `gifts`, `story`.
@@ -36,3 +36,6 @@ Galeri berupa slider foto penuh yang berputar tanpa batas dan berganti otomatis 
 
 ## Our Story
 Isi `story` (tanggal `d`, judul `t`, cerita `p`) dan 2 foto di `storyPhotos`. Tampil sebagai satu kartu: foto bergeser ke bawah di atas, daftar momen di kiri, tulisan "Love Story" vertikal di kanan. Kosongkan `story` bila tidak dipakai.
+
+## Hiasan bunga kiri-kanan
+Bunga di dinding kiri & kanan (`#flora` di `index.html`, gaya di akhir `css/style.css`, gambar `img/flora-1.webp` & `img/flora-2.webp`) bergoyang pelan dan meluncur masuk saat undangan dibuka. Kelopak jatuh dibuat oleh `scripts/flora.js` (ubah `N` untuk jumlahnya). Animasi otomatis mati bila perangkat memakai mode "kurangi gerakan".
