@@ -98,6 +98,7 @@ const C = {
     "img/gal-01.jpg",
     "img/gal-1.jpg",
     "img/gal-2.jpg",
+    "img/gal-3.webp",
     "img/gal-3.jpg",
     "img/gal-4.jpg",
     "img/gal-5.jpg",
@@ -126,7 +127,7 @@ const C = {
     {
       d: "31 Agustus 2025",
       t: "Mulai Mengenal",
-      p: "Semua berawal dari hari ulang tahun yang sederhana. Di hari istimewa itu, dia datang membawa sebuah hadiah berupa bolu yang begitu cantik dan indah. Mungkin terlihat sederhana, tetapi perhatian kecil itu menjadi awal dari cerita yang lebih berarti. Dari situlah kami mulai saling mengenal dan perlahan membuka cerita satu sama lain.",
+      p: "Semua berawal dari hari ulang tahun yang sederhana. Di hari istimewa itu, dia datang membawa sebuah hadiah berupa birthday cake dan flower yang begitu cantik dan indah. Mungkin terlihat sederhana, tetapi perhatian kecil itu menjadi awal dari cerita yang lebih berarti. Dari situlah kami mulai saling mengenal dan perlahan membuka cerita satu sama lain.",
     },
     {
       d: "September 2025",
