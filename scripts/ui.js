@@ -2,7 +2,7 @@
 /* cover, tamu, navigasi */
 history.scrollRestoration = "manual";
 scrollTo(0, 0);
-$("#cvbg").style.backgroundImage = `url(${C.bg.cover})`;
+$("#cvbg").style.backgroundImage = `url(${C.bg.open || C.bg.cover})`;
 document.title = C.site.title;
 document
   .querySelectorAll("[data-names]")
@@ -16,7 +16,11 @@ $("#coverDate").textContent = [
   .join(" . ");
 $("#sideDate").textContent = fmt.toUpperCase();
 const sl = [...document.querySelectorAll(".sl")];
-sl.forEach((el) => (el.style.backgroundImage = `url(${C.bg[el.dataset.k]})`));
+// panel besar di sisi layar lebar: bagian "cover" memakai foto cover versi lebar
+sl.forEach(
+  (el) =>
+    (el.style.backgroundImage = `url(${(el.dataset.k === "cover" && C.bg.openWide) || C.bg[el.dataset.k]})`),
+);
 const SK = {
   home: "cover",
   mempelai: "cover",

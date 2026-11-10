@@ -22,7 +22,7 @@ const esc = (s) =>
       })[c],
   );
 const ov = (a, b) =>
-  `background-image:linear-gradient(${a},${b}),url(${C.bg.cover})`;
+  `background-image:linear-gradient(${a},${b}),url(${C.bg.open || C.bg.cover})`;
 const bgs = (url, o = "rgba(107,31,63,.82)") =>
   `background-image:linear-gradient(${o},${o}),url(${url})`;
 const sec = (id, h, sub, body, st = "", cls = "") => {

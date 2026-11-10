@@ -1,6 +1,6 @@
 /* Data undangan (nama, tanggal, acara, rekening, galeri, cerita) — edit di file ini. */
 /* ============ DATA — edit di sini ============ */
-// Foto dummy pernikahan dari Unsplash (lisensi bebas pakai). Ganti dengan foto kostumer saat pesanan asli.
+// Semua foto memakai file lokal di folder img/ (foto asli kostumer).
 const U = (id, w, h) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=75&w=${w}&h=${h}`;
 // Kosongkan ("" / []) bagian opsional bila tidak dipakai: live, giftAddress, gifts, story.
@@ -15,10 +15,7 @@ const C = {
     role: "Putri", // Putri / Putri pertama / Putri kedua ...
     address: "Jl. Cigending Gg. Situ Indah 2 RT 03 RW 08, Ujungberung, Bandung",
     // 2 foto = carousel otomatis (bergeser ke kanan). Isi 1 foto saja bila tidak ingin carousel.
-    photos: [
-      U("1565038930214-09566ed2149b", 900, 1200),
-      U("1607357910286-1ff94ac13c24", 900, 1200),
-    ],
+    photos: ["img/bride-1.jpg", "img/bride-2.jpg"],
   },
   groom: {
     full: "Asep Ridwan",
@@ -30,10 +27,7 @@ const C = {
     role: "Putra",
     address: "Sumberejo RT 02 RW 03, Waway Karya, Lampung Timur",
     // 2 foto = carousel otomatis (bergeser ke kiri).
-    photos: [
-      U("1545396047-0fd21ce522ba", 900, 1200),
-      U("1596457221755-b96bc3a6df18", 900, 1200),
-    ],
+    photos: ["img/groom-1.jpg", "img/groom-2.jpg"],
   },
   date: "2026-12-12T07:30:00", // tanggal & jam mulai acara (Sabtu, 12 Desember 2026)
   // Identitas & teks undangan
@@ -63,19 +57,19 @@ const C = {
   bg: {
     // latar paralax watercolor untuk bagian tanpa foto (Mempelai, Galeri, Cerita, Hadiah)
     paper: "img/paper.jpg",
-    cover: U("1519741497674-611481863552", 1200, 900),
-    quote: U("1517456215183-9a2c3a748d0c", 1200, 900),
-    foot: U("1502955422409-06e43fd3eff3", 1200, 900),
-    date: U("1556302482-70b6e670e6b7", 1200, 900),
+    cover: "img/cover.jpg",
+    // cover pembuka & Home (HP dan desktop memakai foto yang sama, dipotong penuh)
+    open: "img/open.jpg",
+    openWide: "img/open.jpg",
+    quote: "img/quote.jpg",
+    foot: "img/foot.jpg",
+    date: "img/date.jpg",
   },
   events: [
     {
       t: "Akad Nikah",
       // photos: 2 foto = carousel otomatis; date (opsional) = tanggal khusus acara ini, kosong = tanggal utama
-      photos: [
-        U("1646325311277-0c35409fdd57", 1200, 800),
-        U("1607357910286-1ff94ac13c24", 1200, 800),
-      ],
+      photos: ["img/foot.jpg", "img/gal-9.jpg"],
       time: "07.30 - 09.00 WIB",
       place: "Gedung Brata Kartika",
       addr: "Jl. Nagrog No.815, Pasirwangi, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40618",
@@ -83,10 +77,7 @@ const C = {
     },
     {
       t: "Resepsi",
-      photos: [
-        U("1537633468298-d86f0c2d4173", 1200, 800),
-        U("1695266392136-1805eef542ac", 1200, 800),
-      ],
+      photos: ["img/resepsi-1.jpg", "img/resepsi-2.jpg"],
       time: "10.00 - 15.00 WIB",
       place: "Gedung Brata Kartika",
       addr: "Jl. Nagrog No.815, Pasirwangi, Kec. Ujung Berung, Kota Bandung, Jawa Barat 40618",
@@ -104,19 +95,26 @@ const C = {
   gifts: [{ bank: "BCA", no: "2831880815", name: "Khoerunnisa" }],
   // galeri: disarankan 6 foto portrait agar ringan (tampil sebagai slider + thumbnail)
   gallery: [
-    U("1607357910286-1ff94ac13c24", 800, 1100),
-    U("1596457221755-b96bc3a6df18", 800, 1100),
-    U("1624067056935-593eb6595294", 800, 1100),
-    U("1535185384036-28bbc8035f28", 800, 1100),
-    U("1556499696-0ba753b9ad02", 800, 1100),
-    U("1684244276932-6ae853774c4d", 800, 1100),
+    "img/gal-1.jpg",
+    "img/gal-2.jpg",
+    "img/gal-3.jpg",
+    "img/gal-11.webp",
+    "img/gal-4.jpg",
+    "img/gal-5.jpg",
+    "img/gal-6.jpg",
+    "img/open.jpg",
+    "img/gal-7.jpg",
+    "img/gal-8.jpg",
+    "img/gal-10.webp",
+    "img/gal-9.jpg",
+    "img/foot.jpg",
+    "img/quote.jpg",
+    "img/date.jpg",
+    "img/open-wide.jpg",
   ],
   // cerita (kosongkan [] jika tidak dipakai)
   // 2 foto cerita (carousel otomatis bergeser ke bawah)
-  storyPhotos: [
-    U("1519741497674-611481863552", 1200, 800),
-    U("1517456215183-9a2c3a748d0c", 1200, 800),
-  ],
+  storyPhotos: ["img/story-1.jpg", "img/story-2.jpg"],
   // contoh isi (hapus tanda // di depan, lalu isi dengan cerita asli):
   // story: [
   //   { d: "09 September 2016", t: "Awal Bertemu", p: "Tulis cerita singkat di sini." },
